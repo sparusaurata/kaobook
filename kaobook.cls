@@ -50,10 +50,7 @@
 % Front matter
 \let\oldfrontmatter\frontmatter % Store the old command
 \renewcommand{\frontmatter}{%
-	% --- RC edit to remove roman page numbering ---
-	% \oldfrontmatter% First of all, call the old command
-	\if@twoside\cleardoubleoddpage\else\clearpage\fi
-	% --- end of edit ---
+	\oldfrontmatter% First of all, call the old command
 	\pagestyle{plain.scrheadings}% Use a plain style for the header and the footer
 	\pagelayout{wide}% Use a wide page layout
 	\setchapterstyle{plain} % Choose the default chapter heading style
@@ -65,10 +62,7 @@
 % Main matter
 \let\oldmainmatter\mainmatter % Store the old command
 \renewcommand{\mainmatter}{%
-	% --- RC edit to remove roman page numbering ---
-	% \oldmainmatter% Call the old command
-	\if@twoside\cleardoubleoddpage\else\clearpage\fi
-	% --- end of edit ---
+	\oldmainmatter% Call the old command
 	\pagestyle{scrheadings}% Use a fancy style for the header and the footer
 	\pagelayout{margin}% Use a 1.5 column layout
 	\setchapterstyle{kao} % Choose the default chapter heading style
