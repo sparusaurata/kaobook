@@ -251,16 +251,17 @@
 %----------------------------------------------------------------------------------------
 
 % Set KOMA fonts for book-specific elements
-\addtokomafont{part}{\normalfont\scshape\bfseries}
+%\addtokomafont{part}{\normalfont\scshape\bfseries}
 \addtokomafont{partentry}{\normalfont\scshape\bfseries}
-\addtokomafont{chapter}{\normalfont\bfseries}
+%\addtokomafont{chapter}{\normalfont\bfseries}
 \addtokomafont{chapterentry}{\normalfont\bfseries}
 
 % Set KOMA fonts for elements common to all classes
-\addtokomafont{section}{\normalfont\bfseries}
-\addtokomafont{subsection}{\normalfont\bfseries}
-\addtokomafont{subsubsection}{\normalfont\bfseries}
-\addtokomafont{paragraph}{\normalfont\bfseries}
+\setkomafont{sectioning}{\normalfont\bfseries}
+%\addtokomafont{section}{\normalfont\bfseries}
+%\addtokomafont{subsection}{\normalfont\bfseries}
+%\addtokomafont{subsubsection}{\normalfont\bfseries}
+%\addtokomafont{paragraph}{\normalfont\bfseries}
 \setkomafont{descriptionlabel}{\normalfont\bfseries}
 
 %----------------------------------------------------------------------------------------
