@@ -172,7 +172,7 @@
 \DeclareDocumentCommand{\chapterstylekao}{}{%
     \IfWideLayout{%
         \renewcommand*{\chapterformat}{%
-	    	\mbox{\chapappifchapterprefix{\nobreakspace}\scalebox{2.85}{\thechapter\autodot}}%
+	    	\mbox{\chapappifchapterprefix{\nobreakspace}\scalebox{2.85}{\bfseries\thechapter\autodot}}%
 	    }%
 	    \renewcommand\chapterlinesformat[3]{%
 	    	\vspace{3.5\vscale}%
@@ -200,7 +200,7 @@
 	    }%
     }{%
         \renewcommand*{\chapterformat}{%
-	    	\mbox{\chapappifchapterprefix{\nobreakspace}\scalebox{2.85}{\thechapter\autodot}}%
+	    	\mbox{\chapappifchapterprefix{\nobreakspace}\scalebox{2.85}{\bfseries\thechapter\autodot}}%
 	    }%
 	    \renewcommand\chapterlinesformat[3]{%
 	    	\vspace{3.5\vscale}%
