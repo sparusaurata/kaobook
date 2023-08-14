@@ -563,9 +563,14 @@
 
 \setlength\columnseprule{.4pt} % Set the width of vertical rules in tables
 
-% The marginfix package prevents the margin notes to stay aligned with the main text, so it cannot be used. However, we define the \marginskip command, which is the only command we need from that package.
+% The marginfix package prevents the margin notes to stay aligned with the main 
+%text, so it cannot be used. However, we define the \marginskip command, which 
+%is the only command we need from that package.
+% There's an ugly (?) bugfix here, see
+% https://github.com/fmarotta/kaobook/issues/256#issuecomment-1676447912
 \newcommand\marginskip[1]{%
-	\marginpar{\@margin@par\vspace{#1 - \baselineskip}}% We subtract the \baselineskip that we have in margin pars.
+	\marginpar{\@margin@par\vspace{#1}\vspace{-\baselineskip}}
+	% We subtract the \baselineskip that we have in margin pars.
 }
 
 \newlength{\kaomarginskipabove} % Specify the space above a marginfigure, margintable or marginlisting
