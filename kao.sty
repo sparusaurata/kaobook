@@ -1081,17 +1081,50 @@
 \newcommand{\kao@fontmethodModern}{%
 	\RequirePackage{amssymb} % Must be loaded before unicode-math
 	\RequirePackage[force]{filehook} % Fixes an error
-	\RequirePackage{unicode-math} % Math fonts in xetexorluatex
-	\setromanfont[ % Libertinus Serif font
-		Scale=1.04
-	]{Libertinus Serif}
-	\setsansfont[ % Libertinus Sans font
-		Scale=1
-	]{Libertinus Sans}
-	\setmonofont[ % Libertinus Mono font
-		Scale=.89
-	]{Liberation Mono}
-	\setmathfont{Libertinus Math} % Libertinus Math font
+	% --- Better font loading, @sparusaurata's edits ---
+	% --- Text fonts ---
+	\RequirePackage{fontspec}
+	\setmainfont{LibertinusSerif}[		% serif font:		Libertinus Serif
+		UprightFont			= *-Regular,
+		ItalicFont			= *-Italic,
+		ItalicFeatures		= { SmallCapsFont = *-Italic },
+		BoldFont			= *-Bold,
+		BoldFeatures		= { SmallCapsFont = *-Bold },
+		BoldItalicFont		= *-BoldItalic,
+		BoldItalicFeatures	= { SmallCapsFont = *-BoldItalic },
+		SmallCapsFont 		= *-Regular,
+		SmallCapsFeatures	= { RawFeature=+smcp },
+		Extension			= .otf,
+	]
+	\setsansfont{LibertinusSans}[		% sans serif font:	Libertinus Sans
+		UprightFont			= *-Regular,
+		ItalicFont			= *-Italic,
+		ItalicFeatures		= { SmallCapsFont = *-Italic },
+		BoldFont			= *-Bold,
+		BoldFeatures		= { SmallCapsFont = *-Bold },
+		BoldItalicFont		= *-Italic,
+		BoldItalicFeatures	= { RawFeature = {embolden=3} },
+		SmallCapsFont 		= *-Regular,
+		SmallCapsFeatures	= { RawFeature=+smcp },
+		Extension			= .otf,
+	]
+	\setmonofont{Liberation Mono}[		% mono font:		Liberation Mono
+		Scale				= 0.89,
+	]
+	% --- Math fonts ---
+	% unicode-math must be loaded after \setmainfont in TeXlive 2019, see
+	% https://github.com/wspr/unicode-math/issues/556
+	\RequirePackage{unicode-math}
+	\setmathfont{Libertinus Math}		% math font:		Libertinus Math
+	% Use semibold for \mathbf to be consistent with 
+	% Libertinus Math's “bold” characters
+	% (for some weird reason, \mathrm must be redefined too)
+	\setmathfontface\mathrm{LibertinusSerif-Regular.otf}
+	\setmathfontface\mathbf{LibertinusSerif-Semibold.otf}
+	% Use the same font for \mathsf as for \symsf 
+	% even if \textsf is modified sowehere else
+	\setmathfontface\mathsf{LibertinusSans-Regular.otf}
+	% --- end of edits ---------------------------------
 	\ifluatex
 	\else
 		\RequirePackage{morewrites} % Fix some errors related to floats (not necessary with LuaLaTeX
